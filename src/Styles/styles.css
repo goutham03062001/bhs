@@ -1,0 +1,105 @@
+*{
+   padding:0;
+   margin:0;
+   box-sizing:border-box;
+}
+.mainDiv{
+   width:100vw;
+   height:100vh;
+   display:flex;
+   flex-direction:row;
+   justify-content:flex-start;
+   align-items:flex-start;
+}
+
+.left-side-navigation{
+   background-color:rgba(86, 26, 133, 0.699);
+   width:14%;
+   height:100%;
+   overflow-y:auto;
+   overflow-x:auto;
+}
+
+.navbar-inner-style{
+   padding:5px;
+   margin-top:50px;
+}
+
+.list-item{
+   color:white;
+   display:flex;
+   flex-direction:row;
+   justify-content:flex-start;
+   align-items:flex-start;
+   gap:13px;
+   margin-top:10%;
+   padding:8px;
+}
+
+.list-item:hover{
+   background-color:#2caeaa;
+   cursor:pointer;
+   
+}
+.active{
+   background-color:#2caeaa;
+   border-radius:1px;
+}
+
+.right-part{
+   width:84%;
+   height:100%;
+   padding:15px;
+   display:flex;
+   flex-direction: row;
+   justify-content:space-around;
+   align-items:flex-start;
+   flex-wrap:wrap;
+   overflow-y: auto;
+   gap: 10px;
+}
+
+.dashboardCard{
+   width:30%;
+   height:200px;
+}
+
+.classCard{
+   width:30%;
+   height:250px;
+}
+
+.appointmentRightDiv,.feeDetailsRightDiv{
+   width:100%;
+   height:100%;
+   display:flex;
+   flex-direction:column;
+   justify-content:center;
+   align-items:center;
+}
+
+.resultCard, .feeDetailsCard{
+   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.btnContainer{
+   width:100%;
+   height:100%;
+   display:flex;
+   flex-direction:row;
+   justify-content:center;
+   align-items:center;
+   gap:100px;
+}
+
+.mainContainer, .EditStudentProfileDiv{
+   width:100vw;
+   height:100vh;
+   display:flex;
+   justify-content:center;
+   align-items:center;
+}
+
+.EditStudentProfileDiv{
+   overflow-x:auto;
+}
