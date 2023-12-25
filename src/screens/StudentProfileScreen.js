@@ -28,8 +28,8 @@ const StudentProfileScreen = () => {
 
     // Listen for the "qrCode" event
     socket.on("qrCode", (data) => {
-      setQrCodeData(data);
-      console.log("qrcode data",data);
+      setQrCodeData(data.qr);
+      console.log("qrcode data",data.qr);
     });
 
     // Clean up the socket connection on unmount
