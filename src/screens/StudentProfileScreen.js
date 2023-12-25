@@ -3,6 +3,7 @@ import LeftSideNavigation from '../Components/NavigationComponent/LeftSideNaviga
 import StudentProfileComponent from '../Components/StudentProfileComponent/StudentProfileComponent';
 import io from "socket.io-client";
 import QRCode from 'react-qr-code';
+import { BACKEND_URL } from '../utils/Util';
 
 const QRCodeScanner = ({ qrCodeData }) => {
   return (
@@ -22,7 +23,7 @@ const StudentProfileScreen = () => {
 
   useEffect(() => {
     // Connect to the WebSocket
-    const socket = io("http://localhost:7000", { path: '/socket.io' });
+    const socket = io(BACKEND_URL, { path: '/socket.io' });
 
 
     // Listen for the "qrCode" event
