@@ -4,6 +4,8 @@ import { useParams ,Link} from "react-router-dom";
 import LeftSideNavigation from "../NavigationComponent/LeftSideNavigation";
 import { AuthContext } from "../../context/AuthContext";
 import Spinner from "../../Assets/Spinner.gif";
+import { io } from "socket.io-client";
+import { BACKEND_URL } from "../../utils/Util";
 const ViewSectionData = () => {
   const router = useParams();
   const authContext = useContext(AuthContext);
@@ -16,7 +18,7 @@ const ViewSectionData = () => {
   // const[showResultsModal,setShowResultModal] = useState(false);
   const[showFileUpload,handleShowFileUpload] = useState(false);
   const[chooseStudents,setChooseStudents] = useState([]);
- 
+  const[isReady,setIsReady] = useState(true);
   // const[showEditDetailsModal,setShowEditDetailsModal] = useState(false);
   const[file,setFile] = useState("");
   const [formData, setFormData] = useState({
@@ -48,6 +50,12 @@ const ViewSectionData = () => {
   // })
   useEffect(() => {
     authContext.getStudentsDataBySectionName(className, sectionName);
+    const socket = io(BACKEND_URL, { path: '/socket.io' });
+    socket.on("wbReady", (data) => {
+      // setQrCodeData(data.qr);
+      console.log("whatsapp web ready message",data.message);
+      setIsReady(false); //enable button
+    });
   }, [className, sectionName]);
   function handleFormControl(e) {
     e.preventDefault();
@@ -357,7 +365,9 @@ function handleCheckBoxChange(studentDetails){
                 
                 )}
                 <button className="btn btn-md btn-primary px-3"
-                onClick={listChosenStudentsData}>Send Absent Message</button>
+                onClick={listChosenStudentsData}
+                disabled={isReady}
+                >Send Absent Message</button>
               </>
             ) : (
               <>
